@@ -6,7 +6,10 @@ contract Vault {
   address public owner;
 
   /* constructor */
-  function Vaull() public {
+  // Function constructor en esta versión queda expuesta ya que no coincide su nombre con el del contrato. 
+  // Cualquiera la llama y se convierte en owner. 
+  
+  function Vaull() public { 
     owner = msg.sender;
   }
 

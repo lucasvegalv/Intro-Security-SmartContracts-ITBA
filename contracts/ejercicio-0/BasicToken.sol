@@ -37,12 +37,14 @@ contract BasicToken is Mintable {
 
     // Función para transferir tokens
     function transfer(address to, uint256 amount) external {
+        // No chequea balances del sender con un require porque revierte por default en vˆ0.8.0
         balances[msg.sender] -= amount;
         balances[to] += amount;
     }
 
     // Función para crear tokens. Sólo llamable por una cuenta con privilegios.
     function mint(address to, uint256 amount) external onlyMinter {
+        totalSupply += amount;
         balances[to] += amount;
     }
 }

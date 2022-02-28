@@ -13,7 +13,7 @@ contract Token {
     }
 
     function transfer(address to, uint256 amount) external {
-        require(balances[msg.sender] - amount >= 0, "No tiene suficientes tokens");
+        require(balances[msg.sender] - amount >= 0, "No tiene suficientes tokens"); // Vulnerabilidad 
         
         balances[msg.sender] -= amount;
         balances[to] += amount;
